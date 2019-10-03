@@ -7,6 +7,20 @@ ENV USER_NAME=www-data
 ENV USER_PASSWORD=www-data
 ENV USER_GROUP=www-data
 
+RUN echo "System tools" \
+&&  apt-get update \
+&&  apt-get install -y --no-install-recommends \
+        git \
+        patch \
+        wget \
+        curl \
+        tar \
+        zip \
+        unzip \
+        vim \
+        mc \
+&&  rm -rf /var/lib/apt/lists/*
+
 ## SSH
 RUN	apt-get update \
 &&	apt-get install -y --no-install-recommends \
