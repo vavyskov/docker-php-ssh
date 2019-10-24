@@ -21,6 +21,12 @@ RUN echo "System tools" \
         mc \
 &&  rm -rf /var/lib/apt/lists/*
 
+RUN echo "Drupal" \
+&&  { \
+        echo 'alias drush="~/html/vendor/bin/drush"'; \
+        echo 'alias drupal="~/html/vendor/bin/drupal"'; \
+    } > ${USER_HOME}/.bashrc
+
 ## SSH
 RUN	apt-get update \
 &&	apt-get install -y --no-install-recommends \
