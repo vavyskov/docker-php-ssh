@@ -23,9 +23,9 @@ RUN echo "System tools" \
 
 RUN echo "Drupal" \
 &&  { \
-        echo 'alias drush="~/html/vendor/bin/drush"'; \
-        echo 'alias drupal="~/html/vendor/bin/drupal"'; \
-    } > ${USER_HOME}/.bashrc
+        echo 'export PATH="$PATH:/var/www/html/vendor/bin"'; \
+    } > ${USER_HOME}/.bashrc \
+&&  chown ${USER_NAME}:${USER_GROUP} .bashrc
 
 ## SSH
 RUN	apt-get update \
